@@ -1,2 +1,2 @@
-target1 ansible_host=172.19.0.3
-target2 ansible_host=172.19.0.4
+target1 ansible_port=22 ansible_host=172.19.0.3 ansible_user=root
+target2 ansible_port=22 ansible_host=172.19.0.4 ansible_user=root
