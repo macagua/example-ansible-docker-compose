@@ -70,6 +70,21 @@ target2 ansible_port=2222 ansible_host=172.19.0.4 ansible_user=root
 EOF
 ```
 
+## Configure the connection
+
+For generating public/private rsa key pair, executing the following command:
+
+```
+ssh-keygen -f ~/.ssh/id_rsa_ansible.pub
+```
+
+For generating public/private rsa key pair, executing the following command:
+
+```
+ssh-copy-id -i ~/.ssh/id_rsa_ansible.pub root@172.19.0.3
+ssh-copy-id -i ~/.ssh/id_rsa_ansible.pub root@172.19.0.4
+```
+
 ## Test the connection
 
 For test the connection to servers inventory, executing the following command:
@@ -78,4 +93,12 @@ For test the connection to servers inventory, executing the following command:
 ansible target1 -m ping -i inventory.txt
 ansible target2 -m ping -i inventory.txt
 ansible target* -m ping -i inventory.txt
+```
+
+## Hello World from containers
+
+For make a Hello World from Docker containers, executing the following command:
+
+```
+ansible target* -m shell -a 'echo "Hello Ansible $NAME"'
 ```
