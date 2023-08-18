@@ -1,0 +1,36 @@
+---
+version: '3.4'
+
+services:
+  controller:
+    platform: linux/amd64
+    container_name: controller
+    image: jcpowermac/alpine-ansible-ssh
+    ports:
+      - 2220:22
+    restart: always
+    volumes:
+      - projects:/home/ansible/projects
+
+  target1:
+    platform: linux/amd64
+    container_name: target1
+    image: jcpowermac/alpine-ansible-ssh
+    ports:
+      - 2221:22
+    restart: always
+    volumes:
+      - projects:/home/ansible/projects
+
+  target2:
+    platform: linux/amd64
+    container_name: target2
+    image: jcpowermac/alpine-ansible-ssh
+    ports:
+      - 2222:22
+    restart: always
+    volumes:
+      - projects:/home/ansible/projects
+
+volumes:
+  projects:
