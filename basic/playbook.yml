@@ -1,0 +1,14 @@
+---
+- hosts: all
+  remote_user: root
+
+  tasks:
+  - name: "Test ping"
+    ping:
+
+  - name: "Echo Hello World"
+    shell: printf 'Hello World from %s\n' $HOSTNAME
+    register: hello
+
+  - name: "Output Print"
+    debug: msg="{{ hello.stdout}}"

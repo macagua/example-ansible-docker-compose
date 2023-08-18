@@ -127,3 +127,32 @@ For make a Hello World from Docker containers, executing the following command:
 ```
 ansible -i ./inventory.txt target* -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
 ```
+
+# Creating a Playbook
+
+Create the "Hello World" playbook file, executing the following command:
+
+```
+cat <<EOF > playbook.yml
+---
+- hosts: all
+  remote_user: root
+
+  tasks:
+  - name: "Test ping"
+    ping:
+
+  - name: "Print Hello World"
+    shell: printf 'Hello World from %s\n' $HOSTNAME
+    register: hello
+
+  - name: "Output Print"
+    debug: msg="{{ hello.stdout}}"
+EOF
+```
+
+For executing the "Hello World" playbook file, executing the following command:
+
+```
+$ ansible-playbook -i ./inventory.txt ./playbook.yml
+```
