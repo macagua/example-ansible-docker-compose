@@ -144,6 +144,9 @@ ansible -i ./inventory.txt all -m ping
 ansible -i ./inventory.txt server1 -m ping
 ansible -i ./inventory.txt server2 -m ping
 ansible -i ./inventory.txt server* -m ping
+ansible -i ./inventory.txt testing -m ping
+ansible -i ./inventory.txt production -m ping
+ansible -i ./inventory.txt testing:production -m ping
 ```
 
 ## Hello World from containers
