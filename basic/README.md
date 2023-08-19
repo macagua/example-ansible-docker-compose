@@ -154,6 +154,8 @@ ansible -i ./inventory.txt testing:production -m ping
 For make a "Hello World" from Docker containers, executing the following command:
 
 ```
+ansible -i ./inventory.txt all -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
+ansible -i ./inventory.txt server1 -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
 ansible -i ./inventory.txt server* -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
 ```
 
