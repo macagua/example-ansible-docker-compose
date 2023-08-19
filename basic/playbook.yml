@@ -6,7 +6,7 @@
   - name: "Test ping"
     ping:
 
-  - name: "Echo Hello World"
+  - name: "Print Hello World"
     shell: printf 'Hello World from %s\n' $HOSTNAME
     register: hello
 
