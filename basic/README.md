@@ -160,6 +160,10 @@ For make a "Hello World" from Docker containers, executing the following command
 ansible -i ./inventory.txt all -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
 ansible -i ./inventory.txt server1 -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
 ansible -i ./inventory.txt server* -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
+ansible -i ./inventory.txt all -m shell -a "free -m"
+ansible -i ./inventory.txt all -m shell -a "df -h"
+ansible -i ./inventory.txt -m ansible.builtin.user -a "name=usr_dev password=us3r_d3v" server1
+ansible -i ./inventory.txt -m ansible.builtin.apt -a "name=nginx state=present" server1
 ```
 
 ---
