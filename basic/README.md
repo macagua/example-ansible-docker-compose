@@ -102,7 +102,10 @@ For create the inventory file, executing the following command:
 
 ```
 cat <<EOF > inventory.txt
+[testing]
 server1 ansible_port=22 ansible_host=172.19.0.3 ansible_user=root
+
+[production]
 server2 ansible_port=22 ansible_host=172.19.0.4 ansible_user=root
 EOF
 ```
