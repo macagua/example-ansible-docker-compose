@@ -40,10 +40,10 @@ exit
 exit
 ```
 
-For access to the "target1" container, executing the following command:
+For access to the "server1" container, executing the following command:
 
 ```
-docker exec -it target1 /bin/sh
+docker exec -it server1 /bin/sh
 id
 ansible --version
 su ansible
@@ -87,8 +87,8 @@ Create the inventory file, executing the following command:
 
 ```
 cat <<EOF > inventory.txt
-target1 ansible_port=22 ansible_host=172.19.0.3 ansible_user=root
-target2 ansible_port=22 ansible_host=172.19.0.4 ansible_user=root
+server1 ansible_port=22 ansible_host=172.19.0.3 ansible_user=root
+server2 ansible_port=22 ansible_host=172.19.0.4 ansible_user=root
 EOF
 ```
 
@@ -115,9 +115,9 @@ For test the connection to servers inventory, executing the following command:
 
 ```
 ansible -i ./inventory.txt all -m ping
-ansible -i ./inventory.txt target1 -m ping
-ansible -i ./inventory.txt target2 -m ping
-ansible -i ./inventory.txt target* -m ping
+ansible -i ./inventory.txt server1 -m ping
+ansible -i ./inventory.txt server2 -m ping
+ansible -i ./inventory.txt server* -m ping
 ```
 
 ## Hello World from containers
@@ -125,7 +125,7 @@ ansible -i ./inventory.txt target* -m ping
 For make a Hello World from Docker containers, executing the following command:
 
 ```
-ansible -i ./inventory.txt target* -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
+ansible -i ./inventory.txt server* -m shell -a 'printf "Hello World from %s\n" $HOSTNAME'
 ```
 
 # Creating a Playbook

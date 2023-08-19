@@ -12,9 +12,9 @@ services:
     volumes:
       - projects:/home/ansible/projects
 
-  target1:
+  server1:
     platform: linux/amd64
-    container_name: target1
+    container_name: server1
     image: jcpowermac/alpine-ansible-ssh
     ports:
       - 2221:22
@@ -22,9 +22,9 @@ services:
     volumes:
       - projects:/home/ansible/projects
 
-  target2:
+  server2:
     platform: linux/amd64
-    container_name: target2
+    container_name: server2
     image: jcpowermac/alpine-ansible-ssh
     ports:
       - 2222:22
